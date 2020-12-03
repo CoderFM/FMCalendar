@@ -88,10 +88,11 @@ class FMCalendarData: NSObject {
             var currentMonth = month + i
             if currentMonth < 1 {
                 currentMonth = 12 + currentMonth % 12
-                currentYear = year + i / 12 - 1
+                currentYear = year + i / 12
             }
             if currentMonth > 12 {
                 currentMonth = currentMonth % 12
+                if currentMonth == 0 { currentMonth = 12 }
                 currentYear = year + i / 12 + 1
             }
             let monthItem = self.getSection(year: currentYear, month: currentMonth, currentDay: i == 0 ? day : 0)
